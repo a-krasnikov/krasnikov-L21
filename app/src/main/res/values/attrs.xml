@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="FilmView">
+        <attr name="poster" format="reference" />
+        <attr name="name" format="string" />
+        <attr name="genre" format="string" />
+        <attr name="rating" format="float" />
+        <attr name="cost" format="string" />
+    </declare-styleable>
+</resources>
