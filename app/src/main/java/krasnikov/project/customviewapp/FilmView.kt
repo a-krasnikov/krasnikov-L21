@@ -11,8 +11,12 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
-class FilmView @JvmOverloads constructor(context: Context, attrs: AttributeSet) :
-    LinearLayout(context, attrs) {
+class FilmView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0,
+    defStyleRes: Int = 0
+) : LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private val ivPoster: ImageView by lazy { findViewById(R.id.ivPoster) }
     private val tvName: TextView by lazy { findViewById(R.id.tvName) }
@@ -23,7 +27,9 @@ class FilmView @JvmOverloads constructor(context: Context, attrs: AttributeSet) 
     init {
         inflate(context, R.layout.film_view, this)
 
-        val attributes = context.obtainStyledAttributes(attrs, R.styleable.FilmView)
+        val attributes =
+            context.obtainStyledAttributes(attrs, R.styleable.FilmView, defStyleAttr, defStyleRes)
+
         ivPoster.setImageDrawable(attributes.getDrawable(R.styleable.FilmView_poster))
         tvName.text = attributes.getString(R.styleable.FilmView_name)
         tvGenre.text = attributes.getString(R.styleable.FilmView_genre)
